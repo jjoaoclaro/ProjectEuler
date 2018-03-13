@@ -8,10 +8,10 @@ namespace Project_Euler
 {
     public static class Helpers
     {
-        public static long[] PrimesBelow(long number)
+        public static List<long> PrimesBelow(long number)
         {
             long[] allNumbers = new long[number];
-            long[] primes = new long[number / 2];
+            long[] primes = new long[number];
             for (long i = 0; i < number; i++)
             {
                 allNumbers[i] = i + 1;
@@ -44,11 +44,21 @@ namespace Project_Euler
                     index++;
                 }
             }
+            List<long> ToReturn = new List<long>();
+            long z = 0;
+            bool end = false;
+            while (!end)
+            {
+                ToReturn.Add(primes[z]);
+                z++;
+                if(primes[z] == 0)
+                {
+                    end = true;
+                }
+            }
 
 
-
-
-            return primes;
+            return ToReturn;
         }
 
         public static bool CheckPalindrome(long number)

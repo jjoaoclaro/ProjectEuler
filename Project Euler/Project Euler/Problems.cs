@@ -53,12 +53,11 @@ namespace Project_Euler
             return sum;
         }
 
-        public static long Problem3()
+        public static long Problem3(long target)
         {
-            long[] primes = Helpers.PrimesBelow(295);
+            long[] primes = Helpers.PrimesBelow(Convert.ToInt64(Math.Sqrt(target))).ToArray();
             long lastPrime = 2;
             long index = 0;
-            long target = 600851475143;
 
             while (target != 1)
             {

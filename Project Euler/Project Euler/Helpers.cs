@@ -8,6 +8,8 @@ namespace Project_Euler
 {
     public static class Helpers
     {
+
+
         public static List<long> PrimesBelow(long number)
         {
             long[] allNumbers = new long[number];

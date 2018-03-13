@@ -165,5 +165,45 @@ namespace Project_Euler
 
             return result;
         }
+
+        public static int Problem9()
+        {
+            int a = 0;
+            int b = 0;
+            int c = 0;
+
+            for (c = 998; c > 0; c--)
+            {
+                for (b = c; b > 0; b--)
+                {
+                    for (a = b; a > 0; a--)
+                    {
+                        if (a + b + c != 1000)
+                            continue;
+
+                        if (a * a + b * b == c * c)
+                        {
+                            Console.WriteLine("A=" + a + " B=" + b + " C=" + c);
+                            return a * b * c;
+                        }
+                    }
+                }
+            }
+
+            return 0;
+        }
+
+        public static long Problem10()
+        {
+            long[] primes = Helpers.PrimesBelow(2000000).ToArray();
+
+            long sum = 0;
+            for (int i = 0; i < primes.Length; i++)
+            {
+                sum += primes[i];
+            }
+
+            return sum;
+        }
     }
 }

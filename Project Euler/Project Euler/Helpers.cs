@@ -51,7 +51,7 @@ namespace Project_Euler
             {
                 ToReturn.Add(primes[z]);
                 z++;
-                if(primes[z] == 0)
+                if (primes[z] == 0)
                 {
                     end = true;
                 }

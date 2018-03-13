@@ -137,7 +137,7 @@ namespace Project_Euler
         {
 
             System.IO.StreamReader file =
-    new System.IO.StreamReader(@"C:\Users\FelipeCarvalho\source\repos\ConsoleApp2\ConsoleApp2\test.txt");
+    new System.IO.StreamReader(@"../../Problem8.txt");
             List<int> numbers = new List<int>();
             var x = Convert.ToInt32(file.Read() - 48);
             while (x >= 0)
@@ -204,6 +204,121 @@ namespace Project_Euler
             }
 
             return sum;
+        }
+
+        public static int Problem11()
+        {
+            System.IO.StreamReader file =
+        new System.IO.StreamReader(@"../../Problem11.txt");
+
+
+            int[,] grid = new int[20,20];
+
+            for(int i = 0; i<20; i++)
+            {
+                var line = file.ReadLine();
+                var splited = line.Split(' ');
+                for(int j = 0; j < 20; j++)
+                {
+                    grid[j, i] = Convert.ToInt32(splited[j]);
+                }
+            }
+
+            int x = 0;
+            int y = 0;
+
+            int max = 0;
+            int temp = 0;
+            while(y < 16)
+            {
+                x = 0;
+                while(x < 4)
+                {
+                    temp = grid[x, y] * grid[x, y + 1] * grid[x, y + 2] * grid[x, y + 3];
+                    if(temp > max)
+                    {
+                        max = temp;
+                    }
+                    temp = grid[x, y] * grid[x+1, y + 1] * grid[x+2, y + 2] * grid[x+3, y + 3];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    temp = grid[x, y] * grid[x + 1, y] * grid[x + 2, y] * grid[x + 3, y];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    x++;
+                }
+                while(x < 16)
+                {
+                    temp = grid[x, y] * grid[x-1, y + 1] * grid[x-2, y + 2] * grid[x-3, y + 3];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+
+                    temp = grid[x, y] * grid[x, y + 1] * grid[x, y + 2] * grid[x, y + 3];
+                    if(temp > max)
+                    {
+                        max = temp;
+                    }
+                    temp = grid[x, y] * grid[x+1, y + 1] * grid[x+2, y + 2] * grid[x+3, y + 3];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    temp = grid[x, y] * grid[x + 1, y] * grid[x + 2, y] * grid[x + 3, y];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    x++;
+                }
+                while (x < 20)
+                {
+                    temp = grid[x, y] * grid[x - 1, y + 1] * grid[x - 2, y + 2] * grid[x - 3, y + 3];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+
+                    temp = grid[x, y] * grid[x, y + 1] * grid[x, y + 2] * grid[x, y + 3];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    x++;
+                }
+                y++;
+            }
+
+            while(y < 20)
+            {
+                x = 0;
+                while (x < 4)
+                {
+                    temp = grid[x, y] * grid[x + 1, y] * grid[x + 2, y] * grid[x + 3, y];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    x++;
+                }
+                while (x < 16)
+                {
+                    temp = grid[x, y] * grid[x + 1, y] * grid[x + 2, y] * grid[x + 3, y];
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                    x++;
+                }
+                y++;
+            }
+
+            return max;
         }
     }
 }

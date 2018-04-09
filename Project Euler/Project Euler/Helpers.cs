@@ -202,5 +202,85 @@ namespace Project_Euler
             return primes[number - 1];
 
         }
+
+        public static long PrimeAfter(List<long> primes)
+        {
+            long i = primes.Last();
+            i += 2;
+
+            while (primes.Count < primes.Count+1)
+            {
+                if (i % 2 == 0 || i % 3 == 0)
+                {
+                    i += 2;
+                }
+                else
+                {
+                    var found = false;
+                    var x = 5;
+                    while (x * x <= i && !found)
+                    {
+                        if (i % x == 0 || i % (x + 2) == 0)
+                            found = true;
+
+                        x += 6;
+                    }
+                    if (!found)
+                        primes.Add(i);
+                    i += 2;
+                }
+            }
+
+            return i;
+        }
+
+        public static List<int> RifleShuffler(List<int> deck)
+        {
+            List<int> up = new List<int>();
+            List<int> down = new List<int>();
+            int length = deck.Count;
+            up.AddRange(deck.Take(length / 2));
+            down.AddRange(deck.Skip(length / 2).Take(length / 2));
+            List<int> result = new List<int>();
+            int i = 0;
+            while(i < length / 2)
+            {
+                result.Add(up[i]);
+                result.Add(down[i]);
+                i++;
+            }
+
+            return result;
+        }
+
+        public static List<int> AllDivisors(int number)
+        {
+            List<int> result = new List<int>();
+            var helper = 0;
+            for(int i = 1; i*i < number; i++)
+            {
+                if(number % i == 0)
+                {
+                    result.Add(i);
+                    helper = number / i;
+                    if (helper != i)
+                        result.Add(helper);
+                }
+            }
+
+            return result;
+        }
+
+        public static void
+    }
+
+    public class Pair
+    {
+        public object x, y;
+        public Pair(object x, object y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

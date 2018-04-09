@@ -21,7 +21,10 @@ namespace Project_Euler
             //Console.WriteLine("Problem 8: " + Problems.Problem8());
             //Console.WriteLine("Problem 9: " + Problems.Problem9());
             //Console.WriteLine("Problem 10: " + Problems.Problem10());
-            Console.WriteLine("Problem 11: " + Problems.Problem11());
+            //Console.WriteLine("Problem 11: " + Problems.Problem11());
+            //Console.WriteLine("Problem 12: " + Problems.Problem12());
+            //Console.WriteLine("Problem 13: " + Problems.Problem13());
+            //Console.WriteLine("Problem 622: " + Problems.Problem622());
 
             Console.WriteLine("Solved");
         }

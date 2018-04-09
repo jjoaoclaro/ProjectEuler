@@ -320,5 +320,107 @@ namespace Project_Euler
 
             return max;
         }
+
+        public static long Problem12()
+        {
+            int i = 1;
+            int sum = 0;
+            List<int> divisors;
+            bool found = false;
+            while (!found)
+            {
+                sum += i;
+                divisors = Helpers.AllDivisors(sum);
+                if(divisors.Count > 500)
+                {
+                    found = true;
+                }
+                i++;
+            }
+
+            return sum;
+        }
+
+        public static long Problem13()
+        {
+            System.IO.StreamReader file =
+        new System.IO.StreamReader(@"../../Problem13.txt");
+            long sum = 0;
+            
+            for (int i = 0; i < 100; i++)
+            {
+                var line = file.ReadLine();
+                var helper = line.Take(13).ToArray();
+                var helpstring = new string(helper);
+                var number = Convert.ToInt64(helpstring);
+                sum += number;
+            }
+
+            return Convert.ToInt64(new string(sum.ToString().Take(10).ToArray()));
+        }
+
+        public static long Problem14()
+        {
+            int value = 1;
+            int size = 1;
+            int hvalue;
+            int hsize;
+            
+
+            List<Pair> list = new List<Pair>();
+            list.Add(new Pair(value, size));
+            int h = 2;
+            for(h = 2; h< 1000000; h++)
+            {
+                hvalue = h;
+                hsize = 1;
+                while(hvalue != 1)
+                {
+                    
+                }
+            }
+
+            return 0;
+        }
+
+        public static int Problem622()
+        {
+            List<int> list = new List<int>();
+            List<int> temp = new List<int>();
+            int size = 86;
+            for(int i = 0; i< size; i++)
+            {
+                list.Add(i);
+            }
+
+            foreach(int i in list){
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            temp = Helpers.RifleShuffler(list);
+            int x = 1;
+            int shuffles = 1;
+            bool ordered = true;
+            while(x < temp.Count && ordered)
+            {
+                ordered = temp[x] > temp[x - 1];
+                x++;
+            }
+
+            Console.WriteLine("Stuff");
+            while (!ordered)
+            {
+                temp = Helpers.RifleShuffler(temp);
+                shuffles++;
+                x = 1;
+                ordered = true;
+                while (x < temp.Count && ordered)
+                {
+                    ordered = temp[x] > temp[x - 1];
+                    x++;
+                }
+            }
+            return shuffles ;
+        }
     }
 }
